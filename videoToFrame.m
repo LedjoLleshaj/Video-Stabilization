@@ -13,7 +13,7 @@
     %   void                                                        %
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
-function cropVideo(filename_in, framename_out, from_min, from_sec, to_min, to_sec)
+function videoToFrame(filename_in, framename_out, from_min, from_sec, to_min, to_sec)
 
 % Carico il video con il filename dato
 vidObj = VideoReader(filename_in);
