@@ -1,5 +1,5 @@
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-    %   watchVideo Mostra la video in frames                        %
+    %   watchFrames Mostra la video in frames                        %
     %                                                               %
     %  INPUT                                                        %
     %   filename: Nome del file del video di frame;                 %
