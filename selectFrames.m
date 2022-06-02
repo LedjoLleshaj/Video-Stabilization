@@ -1,5 +1,5 @@
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-    %   SelectFrames Ritaglia un video di frame in un intervallo di indici e lo  salva.     %
+    %   selectFrames Ritaglia un video di frame in un intervallo di indici e lo  salva.     %
     %                                                                                       %
     %   INPUT                                                                               %
     %   input: Nome del video di frame da tagliare;                                         %
@@ -11,7 +11,7 @@
     %   void(solo frame dentro intervallo indicato)                                         %
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-function SelectFrames(input, output, from, to)
+function selectFrames(input, output, from, to)
       
 % Check from <= to
 if from > to
