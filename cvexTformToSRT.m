@@ -6,11 +6,12 @@ function [H,s,ang,t,R] = cvexTformToSRT(H)
     
     % Extract rotation and translation submatrices
     R = H(1:2,1:2);
+    % Translation remains the same:
     t = H(3, 1:2);
     % Compute theta from mean of stable arctangents
     ang = mean([atan2(R(2),R(1)) atan2(-R(3),R(4))]);
     % Compute scale from mean of two stable mean calculations
     s = mean(R([1 4])/cos(ang));
-    % Reconstitute transform
+    % Reconstitute new s-R-T (scale-rotation-translation) transform
     R = [cos(ang) -sin(ang); sin(ang) cos(ang)];
     H = [[s*R; t], [0 0 1]'];
