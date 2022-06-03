@@ -1,19 +1,23 @@
-function watchVideo(filename)
-% Reset the video source to the beginning of the file.
-%filename = 'shaky_car.avi';
+function pointFeatureStabilization(filename)
+    % Reset the video source to the beginning of the file.
+    %filename = 'shaky_car.avi';
     hVideoSrc = VideoReader(filename);
 
-    read(hVideoSrc, 1);
+    %read(hVideoSrc, 1);
                       
     hVPlayer = vision.VideoPlayer; % Create video viewer
 
     % Process all frames in the video
-    movMean = rgb2gray(im2single(readFrame(hVideoSrc)));
-    imgB = movMean;
+    imgA = rgb2gray(im2single(readFrame(hVideoSrc))); % Read first frame into imgA
+    imgB = rgb2gray(im2single(readFrame(hVideoSrc))); % Read second frame into imgB
     imgBp = imgB;
     correctedMean = imgBp;
+    
+    
     ii = 2;
+
     Hcumulative = eye(3);
+    %returns an n-by-n identity matrix with ones on the main diagonal and zeros elsewhere.
     while hasFrame(hVideoSrc) && ii < 10
         % Read in new frame
         imgA = imgB; % z^-1
@@ -25,6 +29,10 @@ function watchVideo(filename)
         H = cvexEstStabilizationTform(imgA,imgB);
         HsRt = cvexTformToSRT(H);
         Hcumulative = HsRt * Hcumulative;
+    
+        %A limitation of the affine transform is that it can only alter the imaging plane. 
+        %Thus it is ill-suited to finding the general distortion between two frames 
+        %taken of a 3-D scene, such as with this video taken from a moving car.
         imgBp = imwarp(imgB,affine2d(Hcumulative),'OutputView',imref2d(size(imgB)));
 
         % Display as color composite with last corrected frame
@@ -33,6 +41,7 @@ function watchVideo(filename)
     
         ii = ii+1;
     end
+
     correctedMean = correctedMean/(ii-2);
     movMean = movMean/(ii-2);
 
