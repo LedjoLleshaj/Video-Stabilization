@@ -49,7 +49,7 @@ function pointFeatureStabilization(filename)
     movMean = movMean/(ii-2);
 
     release(hVPlayer);
-    watchFrames(originalsrc,videoOutput,strcat(hVideoSrc.name,'_pointFeatureStabilized.mp4'));
+    watchFrames(originalsrc,videoOutput,strcat(hVideoSrc.name(1:end-4),'_pointFeatureStabilized'));
 
     %figure; imshowpair(movMean, correctedMean, 'montage');
     %title(['Raw input mean', repmat(' ',[1 50]), 'Corrected sequence mean']);
