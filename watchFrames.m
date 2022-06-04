@@ -1,10 +1,12 @@
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-    %   watchFrames Mostra la video in frames                        %
+    %   watchFrames Mostra la video in frames                       %
     %                                                               %
     %  INPUT                                                        %
-    %   filename: Nome del file del video di frame;                 %
+    %   filename: frames of the original video;                     %
+    %        new: frames of the stabilized video;                   %
+    %       name: name of the video to be created;                  %
     %  OUTPUT                                                       %
-    %   void                                                        %
+    %   void  (the video created in the current directory)                                                      %
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
 function watchFrames(filename,new,name)
@@ -25,5 +27,5 @@ function watchFrames(filename,new,name)
 
     end 
     close(vidObj);
-    
+    fprintf("Video created\n")
 end
