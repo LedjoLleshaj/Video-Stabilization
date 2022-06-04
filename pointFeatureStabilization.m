@@ -9,6 +9,7 @@ function pointFeatureStabilization(filename)
 
     % Process all frames in the video
     imgA = rgb2gray(im2single(readFrame(hVideoSrc))); % Read first frame into imgA
+    movMean = imgA;
     imgB = rgb2gray(im2single(readFrame(hVideoSrc))); % Read second frame into imgB
     imgBp = imgB;
     correctedMean = imgBp;
