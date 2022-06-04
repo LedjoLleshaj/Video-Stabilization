@@ -18,8 +18,6 @@ function rotatetraslateStabilization(filename)
         tipo = 2; 
     end    
         
-    display(tipo);
-        
     R = round(R/2);
     C = round(C/2);
     %Inizio stabilizzazione dei frame
@@ -32,14 +30,6 @@ function rotatetraslateStabilization(filename)
         
         videoOutput(:,:,:,i) = stabilizedFrame; %add stabilized frame to video output  
     end
-
-    close(f);
+    watchFrames(hVideoSrc,videoOutput,'_rotateTraslateStabilized.mp4')
     
-    % Write stabilized video
-    output = VideoWriter(strcat(filename,'_rtout'));
-    open(output);
-    for i=1:nFrames-1
-        writeVideo(output,mat2gray(videoOutput(:,:,:,i)));
-    end
-    close(output);
  end
