@@ -7,13 +7,13 @@
     %   void                                                        %
     % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
-function watchFrames(filename)
+function watchFrames(filename,new,extension)
     
     % Carico il video di frame con il nome dato
     load(filename, 'frames');
-    [nR,nC,nS,nrOfFrames] = size(frames);
+    [~,~,~,nrOfFrames] = size(frames);
 
-    vidObj = VideoWriter(strcat(filename,'_vStabilized.mp4'));
+    vidObj = VideoWriter(strcat(filename,extension));
     open(vidObj);
     % Scorro tutto il video e mostro ogni frame con il relativo indice
     figure;
