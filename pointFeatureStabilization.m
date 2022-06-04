@@ -20,7 +20,7 @@ function pointFeatureStabilization(filename)
 
     Hcumulative = eye(3);
     %returns an n-by-n identity matrix with ones on the main diagonal and zeros elsewhere.
-    while hasFrame(hVideoSrc)
+    while hasFrame(hVideoSrc) && ii<hVideoSrc.NumFrame / 2 
         % Read in new frame
         imgA = imgB; % z^-1
         imgAp = imgBp; % z^-1
@@ -51,6 +51,6 @@ function pointFeatureStabilization(filename)
     release(hVPlayer);
     watchFrames(originalsrc,videoOutput,strcat(hVideoSrc.name,'_pointFeatureStabilized.mp4'));
 
-    figure; imshowpair(movMean, correctedMean, 'montage');
-    title(['Raw input mean', repmat(' ',[1 50]), 'Corrected sequence mean']);
+    %figure; imshowpair(movMean, correctedMean, 'montage');
+    %title(['Raw input mean', repmat(' ',[1 50]), 'Corrected sequence mean']);
 end
