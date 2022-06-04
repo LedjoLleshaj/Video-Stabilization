@@ -9,14 +9,21 @@
 
 function watchFrames(filename)
     
-% Carico il video di frame con il nome dato
-load(filename, 'frames');
-    
-% Scorro tutto il video e mostro ogni frame con il relativo indice
-figure;
-for i=1:size(frames, 4)
-    imshow(frames(:,:,:,i)); title(strcat('Frame number: ', num2str(i)));
-    pause(0.1);
-end
+    % Carico il video di frame con il nome dato
+    load(filename, 'frames');
+    [nR,nC,nS,nrOfFrames] = size(frames);
+
+    vidObj = VideoWriter(strcat(filename,'_vStabilized.mp4'));
+    open(vidObj);
+    % Scorro tutto il video e mostro ogni frame con il relativo indice
+    figure;
+    for i=1:nrOfFrames
+        subplot(121); imshow(frames(:,:,:,i));
+        subplot(122); imshow(new(:,:,:,i));
+        currFrame = getframe(gcf);
+        writeVideo(vidObj,currFrame);
+
+    end 
+    close(vidObj);
     
 end
