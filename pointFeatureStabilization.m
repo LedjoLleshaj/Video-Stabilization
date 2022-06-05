@@ -20,7 +20,7 @@ function pointFeatureStabilization(filename)
 
     Hcumulative = eye(3);
     %returns an n-by-n identity matrix with ones on the main diagonal and zeros elsewhere.
-    while hasFrame(hVideoSrc) && ii<hVideoSrc.NumFrame / 2 
+    while hasFrame(hVideoSrc) %&& ii<hVideoSrc.NumFrame / 2 
         % Read in new frame
         imgA = imgB; % z^-1
         imgAp = imgBp; % z^-1
