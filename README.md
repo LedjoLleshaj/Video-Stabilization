@@ -31,4 +31,4 @@ or
 rotatetraslateStabilization('car.avi')
 ```
 
-For a better understanding read the [documentation]()
+For a better understanding read the [documentation](https://github.com/LedjoLleshaj/Video-Stabilization/blob/main/Latex%20Documentation/Video%20Stabilization%20Esi.pdf)
