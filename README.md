@@ -1,6 +1,6 @@
 # Video-Stabilization
 
-Creation of two MATLAB scripts that allow you to stabilize a video using translation and rotation.
+Two MATLAB scripts that allow you to stabilize a video using translation and rotation.
 
 ## rotatetraslateStabilization.m
 
