@@ -20,8 +20,15 @@ You can find the function [here](https://github.com/LedjoLleshaj/Video-Stabiliza
 
 Open Matlab and call the functions for the script u want to utilize
 Insert the name of the video u want to use as a parameter
-`pointFeatureStabilization('car.avi')`
+
+```
+pointFeatureStabilization('car.avi')
+```
+
 or
-`rotatetraslateStabilization('car.avi')`
+
+```
+rotatetraslateStabilization('car.avi')
+```
 
 For a better understanding read the [documentation]()
